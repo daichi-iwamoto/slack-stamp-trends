@@ -50,7 +50,7 @@ export function SideMenu({
           <Link
             key={id}
             className={`w-full block text-left hover:bg-[#364974] p-[5px] rounded-sm text-[12px] ${
-              channelId === id ? "bg-[#364974]" : ""
+              channelId === id ? "bg-[#2b3b60]" : ""
             }`}
             href={`/?channelId=${id}`}
           >
