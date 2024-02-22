@@ -66,7 +66,12 @@ export default function Home() {
 
     return (
       <main className="flex min-h-screen min-w-screen justify-start content-start flex-wrap text-white">
-        <SideMenu image={image} channels={channels} userName={name} />
+        <SideMenu
+          image={image}
+          channels={channels}
+          userName={name}
+          channelId={channelId}
+        />
         {ranking && channelId ? <Ranking ranking={ranking} /> : null}
       </main>
     );

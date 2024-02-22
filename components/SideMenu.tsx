@@ -14,12 +14,14 @@ export type SideMenuProps = {
   userName: string;
   image: string;
   channels: ChannelData[];
+  channelId: string;
 };
 
 export function SideMenu({
   userName,
   image,
   channels,
+  channelId,
 }: SideMenuProps): JSX.Element {
   const router = useRouter();
 
@@ -47,7 +49,9 @@ export function SideMenu({
         {channels.map(({ id, name }) => (
           <Link
             key={id}
-            className="w-full block text-left hover:bg-[#364974] p-[5px] rounded-sm text-[12px]"
+            className={`w-full block text-left hover:bg-[#364974] p-[5px] rounded-sm text-[12px] ${
+              channelId === id ? "bg-[#364974]" : ""
+            }`}
             href={`/?channelId=${id}`}
           >
             <span>&#035;</span> {name}
