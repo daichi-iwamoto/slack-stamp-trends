@@ -70,7 +70,7 @@ export default function Home() {
           image={image}
           channels={channels}
           userName={name}
-          channelId={channelId}
+          channelId={channelId || ""}
         />
         {ranking && channelId ? <Ranking ranking={ranking} /> : null}
       </main>
