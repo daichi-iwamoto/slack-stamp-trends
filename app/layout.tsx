@@ -1,7 +1,11 @@
-"use client";
-import { SessionProvider } from "next-auth/react";
+import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { SessionProviderLayout } from "@/components/SessionProviderLayout";
+
+export const metadata: Metadata = {
+  title: "Slack Emoji Ranking",
+};
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -11,9 +15,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="ja">
       <body className={inter.className}>
-        <SessionProvider>{children}</SessionProvider>
+        <SessionProviderLayout>{children}</SessionProviderLayout>
       </body>
     </html>
   );
