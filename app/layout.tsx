@@ -3,7 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { SessionProviderLayout } from "@/components/SessionProviderLayout";
 
-export const fetchCache = "default-no-store";
+export const fetchCache = "only-no-store";
 
 export const metadata: Metadata = {
   title: "Slack Emoji Ranking",
