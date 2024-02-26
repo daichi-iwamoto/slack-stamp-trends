@@ -47,9 +47,11 @@ export default function Home() {
 
   useEffect(() => {
     setChannels([]);
-    setRanking([]);
-
     getChannels().then((data) => setChannels(data));
+  }, []);
+
+  useEffect(() => {
+    setRanking([]);
     getReactionRanking(channelId || "").then((data) => setRanking(data));
   }, [channelId]);
 
