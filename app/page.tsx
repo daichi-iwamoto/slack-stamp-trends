@@ -15,6 +15,7 @@ const getChannels = async () => {
     headers: {
       "Content-Type": "application/x-www-form-urlencoded",
     },
+    cache: "no-store",
   })
     .then((response) => response.json())
     .catch((error) => console.error(error));
