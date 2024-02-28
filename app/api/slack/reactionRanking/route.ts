@@ -2,10 +2,13 @@ import { WebClient } from "@slack/web-api";
 import { Reaction } from "@slack/web-api/dist/types/response/ConversationsHistoryResponse";
 import { NextRequest, NextResponse } from "next/server";
 
-const client = new WebClient(process.env.SLACK_TOKEN);
-
 export async function POST(request: NextRequest): Promise<NextResponse> {
   const { channelId } = await request.json();
+  if (typeof channelId !== "string") {
+    return NextResponse.json([]);
+  }
+
+  const client = new WebClient(process.env.SLACK_TOKEN);
 
   // チャンネル内のメッセージを取得
   const histories = await client.conversations.history({

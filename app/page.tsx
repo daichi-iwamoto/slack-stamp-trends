@@ -1,8 +1,6 @@
 "use client";
-
 import { useSession, signIn } from "next-auth/react";
 import { useEffect, useState } from "react";
-
 import { Spinner } from "@/components/Spinner";
 import { SideMenu, SideMenuProps } from "@/components/SideMenu";
 import { useSearchParams } from "next/navigation";
@@ -11,11 +9,10 @@ import { Ranking, RankingProps } from "@/components/Ranking";
 // ボットが参加しているチャンネル一覧を取得する
 const getChannels = async () => {
   const data = await fetch("/api/slack/channels", {
-    method: "GET",
+    method: "POST",
     headers: {
       "Content-Type": "application/x-www-form-urlencoded",
     },
-    cache: "no-store",
   })
     .then((response) => response.json())
     .catch((error) => console.error(error));
@@ -53,7 +50,9 @@ export default function Home() {
 
   useEffect(() => {
     setRanking([]);
-    getReactionRanking(channelId || "").then((data) => setRanking(data));
+    if (!channelId) return;
+
+    getReactionRanking(channelId).then((data) => setRanking(data));
   }, [channelId]);
 
   if (status === "loading") {
