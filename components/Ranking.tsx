@@ -1,5 +1,3 @@
-"use client";
-import Image from "next/image";
 import { RankingWithoutChampion } from "@/components/RankingWithoutChampion";
 import { RankingWithChampion } from "@/components/RankingWithChampion";
 

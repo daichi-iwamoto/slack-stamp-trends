@@ -1,7 +1,5 @@
-"use client";
 import Image from "next/image";
 import { signOut } from "next-auth/react";
-import { useRouter } from "next/navigation";
 import { RiLogoutBoxRLine } from "react-icons/ri";
 import Link from "next/link";
 
@@ -23,8 +21,6 @@ export function SideMenu({
   channels,
   channelId,
 }: SideMenuProps): JSX.Element {
-  const router = useRouter();
-
   return (
     <div className="bg-[#0d1f49] h-[100dvh] w-[320px] fixed top-0 left-0">
       <div className="flex justify-start gap-[10px] items-center py-[20px] mx-[10px] border-b-[1px] border-solid">
