@@ -3,7 +3,7 @@ import { RankingProps } from "@/components/Ranking";
 
 export function RankingWithChampion({ ranking }: RankingProps) {
   // 2位以降のランキングをカウントする
-  let rank = 2;
+  let rank = 0;
 
   return (
     <div className="w-[calc(100dvw-320px)] h-[100dvh] fixed top-0 right-0 bg-[#ebeef4] overflow-hidden">
@@ -63,7 +63,7 @@ export function RankingWithChampion({ ranking }: RankingProps) {
         {
           // ランキングの2位以降の表示
           ranking.slice(1).map(({ imageUrl, name, count }, index) => {
-            if (ranking[index - 1]?.count !== count) rank = index + 1;
+            if (ranking[index]?.count !== count) rank = index + 2;
 
             return (
               <div
@@ -80,7 +80,7 @@ export function RankingWithChampion({ ranking }: RankingProps) {
                 </div>
                 <div className="text-black">
                   <div className="text-[20px]">
-                    {rank}位
+                    <span className="text-[18px] mr-[10px]">{rank}位</span>
                     <span className="text-[16px] text-white py-1 px-3 bg-[#becbe6] rounded-md">
                       :{name}:
                     </span>

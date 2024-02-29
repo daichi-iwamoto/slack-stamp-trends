@@ -74,10 +74,17 @@ export default function Home() {
           userName={name}
           channelId={channelId || ""}
         />
-        {ranking && channelId ? <Ranking ranking={ranking} /> : null}
+        {ranking.length > 0 && channelId ? (
+          <Ranking ranking={ranking} />
+        ) : (
+          <div className="w-[calc(100dvw-320px)] h-[100dvh] fixed top-0 right-0 bg-[#ebeef4] flex justify-center items-center">
+            <Spinner />
+          </div>
+        )}
       </main>
     );
   }
+  v;
 
   return (
     <main className="flex min-h-screen justify-center p-24 content-center flex-wrap">
