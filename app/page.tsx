@@ -84,7 +84,6 @@ export default function Home() {
       </main>
     );
   }
-  v;
 
   return (
     <main className="flex min-h-screen justify-center p-24 content-center flex-wrap">
